@@ -8,17 +8,25 @@
 }
 
 .logo{
-    font-size:3em ;
+    position: relative;
+    font-size:2.8em ;
     color: var(--text-color);
     font-weight: 600;
-    /* left: 5%; */
     
+}
+.navbar{
+    position: relative;
+}
+.home{
+    left:0;
+    padding-left: 0;
+    margin-left: 0;
     
 }
 
 .home-content h6{
-    font-weight: 300;
-    font-size: 1.8rem;
+    font-weight: 500;
+    font-size: 1.9rem;
     
 }
 /* not required
@@ -112,9 +120,11 @@ section{
 }
 .home-content{
 
-    font-size: 3.4rem;
+    font-size: 3.7rem;
     line-height: 1.5;
     max-width: 60rem;
+    /* display: flex;
+    flex-direction: column; */
 }
 .btn-box{
    position:relative;
@@ -182,13 +192,37 @@ width:100%;
     width:30rem;
 }
 .home-content .Animated-text h2{
-    font-size: 3.3rem;
+    font-size: 3.6rem;
     font-weight: 700;
+   
     color: transparent;
     -webkit-text-stroke: .7px var(--main-color);  
+    background-image:linear-gradient(var(--main-color),var(--main-color));
+    background-repeat: no-repeat;
+    -webkit-background-clip:text ;
+    background-position: -33rem 0;
+    animation: homeBgText 7s linear infinite;
+    animation-delay: 1.5s;
+
 }
+.home-content .Animated-text h2::before{
+content: '';
+position: absolute;
+top:0;
+left:0;
+width: 0;
+height: 100%;
+border-right : 2px solid var(--main-color) ;
+z-index: -1;
+animation: homeCursorText 7s linear infinite;
+animation-delay: 1.5s;
+
+}
+
+/* animation for animated text */
+
 .home-content p{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin:2rem 0 4rem;
 }
 
@@ -216,14 +250,7 @@ width:100%;
    
 } */
 
-.home{
-    display:flex;
-    justify-content: space-around;
-}
-/* #image:hover{ */
-   /* background: var(--main-color); */
-    /* opacity: 0.8; */
-/* } */
+
 
 .about{
     display: flex;
@@ -261,16 +288,17 @@ span{
 
 
 .about-image {
-    display: flex;
-    width: 47rem;
-    height: 40rem;
-    border-radius: 100%;
+    /* display: flex; */
+    width: 45rem;
+    height: 35rem;
+    border-radius: 50%;
+   margin-left: 13%;
     
 }
 
 .image- {
     border-radius: 50%;
-    height: 350px;
+    height: 30rem;
     /* left: 20%; */
 box-shadow: .2rem .2rem 3rem .2rem  var(--main-color);
     /* border: .4rem solid var(--main-color); Initial transparent border */
@@ -483,7 +511,7 @@ transition: .5s;
 
 /* styling for contacts section */
 .contact {
-    background-color: var(--bg-color);
+    background-color:rgba(0,0,0,.2);
     padding: 7rem 0; /* Increase padding for better spacing */
     text-align: center;
 }
@@ -712,24 +740,27 @@ transition: .5s;
 
 .home-sci{
     position: absolute;
-    bottom: 4rem;
-    width: 170px;
+    /* margin: 5rem; */
+    bottom: 5rem;
+    width: 180px;
     display: flex;
-    justify-content: space-around;
+    
+    justify-content: space-between;
 }
 .home-sci a{
     position: relative;
     display: inline-flex;
-    justify-content: space-around;
+    justify-content:center;
     align-items: center;
-    width: 60px ;
-    height: 60px;
-    /* padding: .7rem; */
+    width: 40px ;
+    height: 40px;
+   font-size: 20px;
+   padding: .4rem;
     background: transparent;
     border: .2rem solid var(--main-color);
     border-radius: 50%;
    
-    margin: .4rem;
+    margin-left: 1rem;
     z-index: 1;
     overflow: hidden;
 }
@@ -755,5 +786,30 @@ transition: .5s;
 
 .home-sci a:hover::before{
     width: 100%;
-    /* height: 100%; */
+  
 }
+@keyframes homeBgText {
+    0%,10%,100%{
+        background-position:-33rem 0;
+    }
+    65%,85%{
+        background-position:0 0;
+    }
+        
+    }
+
+
+    @keyframes homeCursorText {
+        0%,10%,100%{
+           width:0;
+        }
+        65%,78%,85%{
+           width:100%;
+           opacity: 1;
+        }
+         75%,81%{
+opacity: 0;
+         }   
+        }  
+
+      
